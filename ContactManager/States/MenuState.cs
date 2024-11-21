@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ContactManager.States
+﻿namespace ContactManager.States
 {
     public class MenuState : State
     {
@@ -26,18 +20,19 @@ namespace ContactManager.States
                     break; // AddState
                 case "2":
                     break; // UpdateState
-                case "3": 
+                case "3":
                     break; // DeleteState
                 case "4":
                     _application.PersonManager.ListPeople();
                     break;
+
                 case "5":
                     _application.isRunning = false;
                     break;
+
                 default:
                     break;
             }
-
         }
     }
 }

@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ContactManager.States
+﻿namespace ContactManager.States
 {
     public abstract class State
     {
         protected Application _application;
+
         public State(Application application)
         {
             _application = application;

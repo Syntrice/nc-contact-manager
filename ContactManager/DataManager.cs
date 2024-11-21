@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.PortableExecutable;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ContactManager
+﻿namespace ContactManager
 {
     public static class DataManager
     {
@@ -25,7 +18,7 @@ namespace ContactManager
         }
 
         public static void WriteToCSV(Person person)
-        { 
+        {
             string line = $"{person.Name}, {person.Birthdate}, {person.Phone}, {person.Email}";
 
             if (File.Exists(Filepath))
@@ -35,10 +28,10 @@ namespace ContactManager
                     sw.WriteLine(line);
                 }
             }
-            else 
+            else
             {
                 File.WriteAllText(Filepath, line + "\n");
-            }   
+            }
         }
     }
 }

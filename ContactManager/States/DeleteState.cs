@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ContactManager.States
+﻿namespace ContactManager.States
 {
     public class DeleteState : State
     {
@@ -14,7 +8,6 @@ namespace ContactManager.States
 
         public override void Run()
         {
-            
         }
     }
 }

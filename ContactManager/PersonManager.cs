@@ -18,7 +18,7 @@
 
         public void ListPeople()
         {
-            foreach(Person p in Contacts)
+            foreach (Person p in Contacts)
             {
                 Console.WriteLine(p.Name);
             }
