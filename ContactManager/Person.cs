@@ -15,8 +15,12 @@ namespace ContactManager
         public string Phone { get; set; }
         public string Email { get; set; }
 
-        public Person()
+        public Person(string name, string birthdate, string phone, string email)
         {
+            Name = name;
+            Birthdate = birthdate;
+            Phone = phone;
+            Email = email;
             Id = IdCounter++;
         }
     }

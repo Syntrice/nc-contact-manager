@@ -20,8 +20,6 @@ namespace ContactManager.States
                 Console.Write("Enter ID of contact to update: ");
                 int id = Convert.ToInt32(Console.ReadLine());
 
-
-
             }
             catch (FormatException e)
             {

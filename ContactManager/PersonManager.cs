@@ -6,7 +6,7 @@
 
         public PersonManager()
         {
-            Contacts = new List<Person>();
+            Contacts = DataManager.ReadListFromCSV();
         }
 
         public void AddPerson(string name, string birthdate, string phone, string email)
@@ -14,14 +14,15 @@
             // TODO: complete validation and return validation result
 
 
-            Person person = new Person();
+            Person person = new Person(name, birthdate, phone, email);
 
-            UpdateName(person.Id, name);
-            UpdateBirthdate(person.Id, birthdate);
-            UpdatePhone(person.Id, phone);
-            UpdateEmail(person.Id, email);
+            //UpdateName(person.Id, name);
+            //UpdateBirthdate(person.Id, birthdate);
+            //UpdatePhone(person.Id, phone);
+            //UpdateEmail(person.Id, email);
 
             Contacts.Add(person);
+            DataManager.WriteToCSV(person);
         }
 
         private Person? getPersonById(int id)
@@ -85,5 +86,12 @@
             return new ValidationResult(true);
         }
 
+        public void ListPeople()
+        {
+            foreach(Person p in Contacts)
+            {
+                Console.WriteLine(p.Name);
+            }
+        }
     }
 }
