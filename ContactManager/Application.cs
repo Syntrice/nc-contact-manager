@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ContactManager.States;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,9 +11,17 @@ namespace ContactManager
     {
         public State State { get; set; }
         public bool isRunning { get; set; } = true;
+
+        public PersonManager PersonManager { get; }
+
+        public Application()
+        {
+            PersonManager = new PersonManager();
+            State = new MenuState(this);
+        }
+
         public void Run()
         {
-            State = new MenuState(this);
             while(isRunning)
             {
                 State.Run();
