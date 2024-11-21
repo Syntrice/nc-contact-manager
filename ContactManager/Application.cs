@@ -9,11 +9,9 @@ namespace ContactManager
 {
     public class Application
     {
-        public State State { get; set; }
         public bool isRunning { get; set; } = true;
-
         public PersonManager PersonManager { get; }
-
+        public State State { get; set; }
         public Application()
         {
             PersonManager = new PersonManager();
@@ -22,11 +20,10 @@ namespace ContactManager
 
         public void Run()
         {
-            while(isRunning)
+            while (isRunning)
             {
                 State.Run();
             }
         }
-
     }
 }

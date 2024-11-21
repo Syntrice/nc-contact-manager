@@ -11,6 +11,19 @@ namespace ContactManager
     {
         public static string Filepath { get; private set; } = "./people.csv";
 
+        public static List<Person> ReadListFromCSV()
+        {
+            var list = new List<Person>();
+
+            foreach (string line in File.ReadLines(Filepath))
+            {
+                var stripped = line.Trim().Split(',');
+                Person p = new Person(stripped[0], stripped[1], stripped[2], stripped[3]);
+                list.Add(p);
+            }
+            return list;
+        }
+
         public static void WriteToCSV(Person person)
         { 
             string line = $"{person.Name}, {person.Birthdate}, {person.Phone}, {person.Email}";
@@ -26,19 +39,6 @@ namespace ContactManager
             {
                 File.WriteAllText(Filepath, line + "\n");
             }   
-        }
-
-        public static List<Person> ReadListFromCSV()
-        {
-            var list = new List<Person>();
-
-            foreach(string line in File.ReadLines(Filepath))
-            {
-                var stripped = line.Trim().Split(',');
-                Person p = new Person(stripped[0], stripped[1], stripped[2], stripped[3]);
-                list.Add(p);
-            }
-            return list;
         }
     }
 }

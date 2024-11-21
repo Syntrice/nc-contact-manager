@@ -9,10 +9,11 @@ namespace ContactManager.States
     public abstract class State
     {
         protected Application _application;
-        public abstract void Run();
         public State(Application application)
         {
             _application = application;
         }
+
+        public abstract void Run();
     }
 }

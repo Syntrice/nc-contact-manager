@@ -9,12 +9,11 @@ namespace ContactManager
     public class Person
     {
         public static int IdCounter = 0;
+        public string Birthdate { get; }
+        public string Email { get; }
         public int Id { get; }
         public string Name { get; }
-        public string Birthdate { get; }
         public string Phone { get; }
-        public string Email { get; }
-
         public Person(string name, string birthdate, string phone, string email)
         {
             Name = name;
