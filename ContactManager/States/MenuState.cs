@@ -23,6 +23,7 @@
                 case "3": // Delete contact
                     break; 
                 case "4": // List contacts
+                    Console.WriteLine();
                     _application.PersonManager.ListPeople();
                     break;
                 case "5": // Quit application

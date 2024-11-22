@@ -24,7 +24,6 @@ namespace ContactManager
             {
                 Console.WriteLine();
                 State.Run();
-                Console.WriteLine();
             }
         }
 

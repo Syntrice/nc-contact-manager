@@ -21,7 +21,7 @@ namespace ContactManager.Manager
         {
             foreach (Person p in Contacts)
             {
-                Console.WriteLine(p.Name);
+                Console.WriteLine($"Name: {p.Name}, Birthdate: {p.Birthdate}, Phone: {p.Phone}, Email: {p.Email}");
             }
         }
     }

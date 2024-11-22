@@ -12,16 +12,16 @@ namespace ContactManager.States
         {
             Console.WriteLine("New contact:");
 
-            Console.Write("Please enter name:");
+            Console.Write("Please enter name: ");
             string name = Console.ReadLine();
 
-            Console.Write("Please enter birthdate:");
+            Console.Write("Please enter birthdate: ");
             string birthdate = Console.ReadLine();
 
-            Console.Write("Please enter phone:");
+            Console.Write("Please enter phone: ");
             string phone = Console.ReadLine();
 
-            Console.Write("Please enter email:");
+            Console.Write("Please enter email: ");
             string email = Console.ReadLine();
 
             Person person = new Person(name, birthdate, phone, email);
@@ -29,6 +29,7 @@ namespace ContactManager.States
 
             if (!result.IsValid)
             {
+                Console.WriteLine();
                 Console.WriteLine("Invalid contact:");
                 foreach (string error in result.Messages)
                 {
