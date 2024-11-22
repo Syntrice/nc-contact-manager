@@ -9,6 +9,11 @@
             _rules = new List<(Predicate<T> Rule, string Message)>();
         }
 
+        public DataValidator(IEnumerable<(Predicate<T> Rule, string Message)> rules)
+        {
+            _rules = new List<(Predicate<T> Rule, string Message)>(rules);
+        }
+
         public void AddRule(Predicate<T> rule, string description)
         {
             _rules.Add((rule, description));

@@ -16,14 +16,14 @@
             Email = email;
         }
 
-        public static readonly DataValidator<Person> PersonValidator = new();
-
-        static Person()
+        public static readonly DataValidator<Person> PersonValidator = new(new List<(Predicate<Person>, string)>
         {
-            PersonValidator.AddRule(p => p.Name.Length > 0, "Name cannot be empty");
-            PersonValidator.AddRule(p => p.Birthdate.Length > 0, "Birthdate cannot be empty");
-            PersonValidator.AddRule(p => p.Phone.Length > 0, "Phone cannot be empty");
-            PersonValidator.AddRule(p => p.Email.Length > 0, "Email cannot be empty");
+            (p => p.Name.Length > 0, "Name cannot be empty"),
+            (p => p.Birthdate.Length > 0, "Birthdate cannot be empty"),
+            (p => p.Phone.Length > 0, "Phone cannot be empty"),
+            (p => p.Email.Length > 0, "Email cannot be empty")
         }
+        );
+        
     }
 }
