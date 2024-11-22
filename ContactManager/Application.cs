@@ -4,7 +4,8 @@ namespace ContactManager
 {
     public class Application
     {
-        public bool isRunning { get; set; } = true;
+        private bool _isRunning;
+
         public PersonManager PersonManager { get; }
         public State State { get; set; }
 
@@ -16,10 +17,16 @@ namespace ContactManager
 
         public void Run()
         {
-            while (isRunning)
+            _isRunning = true;
+            while (_isRunning)
             {
                 State.Run();
             }
+        }
+
+        public void Stop()
+        {
+            _isRunning = false;
         }
     }
 }
