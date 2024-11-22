@@ -2,7 +2,6 @@
 {
     public class Person
     {
-        public static int IdCounter = 0;
         public string Birthdate { get; }
         public string Email { get; }
         public int Id { get; }
@@ -15,7 +14,16 @@
             Birthdate = birthdate;
             Phone = phone;
             Email = email;
-            Id = IdCounter++;
+        }
+
+        public static readonly DataValidator<Person> PersonValidator = new();
+
+        static Person()
+        {
+            PersonValidator.AddRule(p => p.Name.Length > 0, "Name cannot be empty");
+            PersonValidator.AddRule(p => p.Birthdate.Length > 0, "Birthdate cannot be empty");
+            PersonValidator.AddRule(p => p.Phone.Length > 0, "Phone cannot be empty");
+            PersonValidator.AddRule(p => p.Email.Length > 0, "Email cannot be empty");
         }
     }
 }

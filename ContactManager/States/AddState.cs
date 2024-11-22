@@ -1,4 +1,6 @@
-﻿namespace ContactManager.States
+﻿using ContactManager.Data;
+
+namespace ContactManager.States
 {
     public class AddState : State
     {
@@ -21,6 +23,19 @@
 
             Console.Write("Please enter email:");
             string email = Console.ReadLine();
+
+            Person person = new Person(name, birthdate, phone, email);
+            ValidationResult result = Person.PersonValidator.Validate(person);
+
+            if (!result.IsValid)
+            {
+                Console.WriteLine("Invalid contact:");
+                foreach (string error in result.Messages)
+                {
+                    Console.WriteLine(error);
+                }
+                return;
+            }
 
             _application.PersonManager.AddPerson(name, birthdate, phone, email);
             Console.WriteLine("Contact Saved!");
