@@ -18,10 +18,13 @@ namespace ContactManager
 
         public void Run()
         {
+            Console.WriteLine("-- Contact Manager --");
             _isRunning = true;
             while (_isRunning)
             {
+                Console.WriteLine();
                 State.Run();
+                Console.WriteLine();
             }
         }
 
