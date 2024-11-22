@@ -1,4 +1,4 @@
-﻿namespace ContactManager
+﻿namespace ContactManager.Data
 {
     public class Person
     {

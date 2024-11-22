@@ -1,4 +1,5 @@
-﻿using ContactManager.States;
+﻿using ContactManager.Manager;
+using ContactManager.States;
 
 namespace ContactManager
 {
