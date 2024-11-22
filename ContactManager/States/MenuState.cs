@@ -25,11 +25,9 @@
                 case "4":
                     _application.PersonManager.ListPeople();
                     break;
-
                 case "5":
                     _application.isRunning = false;
                     break;
-
                 default:
                     break;
             }

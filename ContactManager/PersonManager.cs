@@ -6,14 +6,13 @@
 
         public PersonManager()
         {
-            Contacts = DataManager.ReadListFromCSV();
+            Contacts = new List<Person>();
         }
 
         public void AddPerson(string name, string birthdate, string phone, string email)
         {
             Person person = new Person(name, birthdate, phone, email);
             Contacts.Add(person);
-            DataManager.WriteToCSV(person);
         }
 
         public void ListPeople()
