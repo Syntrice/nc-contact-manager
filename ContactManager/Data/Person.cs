@@ -14,6 +14,10 @@
             Phone = phone;
             Email = email;
         }
+        public override string ToString()
+        {
+            return $"Name: {Name}, Birthdate: {Birthdate}, Phone: {Phone}, Email: {Email}";
+        }
 
         public static readonly DataValidator<Person> PersonValidator = new(new List<(Predicate<Person>, string)>
         {

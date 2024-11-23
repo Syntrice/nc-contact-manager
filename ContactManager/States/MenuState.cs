@@ -21,6 +21,7 @@
                 case "2": // Update contact
                     break; 
                 case "3": // Delete contact
+                    _application.State = new DeleteState(_application);
                     break; 
                 case "4": // List contacts
                     Console.WriteLine();

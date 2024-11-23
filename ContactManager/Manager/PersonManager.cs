@@ -35,7 +35,7 @@ namespace ContactManager.Manager
             for (int i = 0; i < _contacts.Count; i++)
             {
                 Person p = _contacts[i];
-                peopleInformation.Add($"Id: {i}, Name: {p.Name}, Birthdate: {p.Birthdate}, Phone: {p.Phone}, Email: {p.Email}");
+                peopleInformation.Add($"Id: {i}, {p.ToString()}");
             }
 
             return peopleInformation;
@@ -44,6 +44,28 @@ namespace ContactManager.Manager
         public void SavePeople() // TODO: Perhaps make IDisposable and save in Dispose?
         {
             _fileManager.WritePeopleCSV(_contacts);
+        }
+
+        public (ValidationResult Validation, String? Result) GetPersonInformation(int id)
+        {
+            if (id < 0 || id >= _contacts.Count)
+            {
+                return (new ValidationResult(false, ["Invalid Person ID"]), null);
+            }
+            Person p = _contacts[id];
+
+            return (ValidationResult.Success(), $"Id: {id}, {p.ToString()}");
+        }
+
+        public ValidationResult DeletePerson(int id)
+        {
+            if (id < 0 || id >= _contacts.Count)
+            {
+                return new ValidationResult(false, ["Invalid Person ID"]);
+            }
+
+            _contacts.RemoveAt(id);
+            return ValidationResult.Success();
         }
     }
 }
