@@ -4,17 +4,15 @@
     {
         public string Birthdate { get; }
         public string Email { get; }
-        public int Id { get; }
         public string Name { get; }
         public string Phone { get; }
 
-        public Person(string name, string birthdate, string phone, string email, int id)
+        public Person(string name, string birthdate, string phone, string email)
         {
             Name = name;
             Birthdate = birthdate;
             Phone = phone;
             Email = email;
-            Id = id;
         }
 
         public static readonly DataValidator<Person> PersonValidator = new(new List<(Predicate<Person>, string)>

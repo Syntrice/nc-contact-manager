@@ -30,7 +30,7 @@ namespace ContactManager.Manager
                 string phone = parts[2];
                 string email = parts[3];
 
-                Person person = new Person(name, birthdate, phone, email, lineNumber);
+                Person person = new Person(name, birthdate, phone, email);
                 ValidationResult validationResult = Person.PersonValidator.Validate(person);
 
                 if (!validationResult.IsValid)

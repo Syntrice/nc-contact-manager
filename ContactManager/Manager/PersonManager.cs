@@ -16,7 +16,7 @@ namespace ContactManager.Manager
         public ValidationResult AddPerson(string name, string birthdate, string phone, string email)
         {
             int id = _contacts.Count;
-            Person person = new Person(name, birthdate, phone, email, id);
+            Person person = new Person(name, birthdate, phone, email);
             ValidationResult validationResult = Person.PersonValidator.Validate(person);
 
             if (validationResult.IsValid)
@@ -31,10 +31,13 @@ namespace ContactManager.Manager
         {
 
             List<String> peopleInformation = new List<String>();
-            foreach (Person p in _contacts)
+
+            for (int i = 0; i < _contacts.Count; i++)
             {
-                peopleInformation.Add($"Id: {p.Id}, Name: {p.Name}, Birthdate: {p.Birthdate}, Phone: {p.Phone}, Email: {p.Email}");
+                Person p = _contacts[i];
+                peopleInformation.Add($"Id: {i}, Name: {p.Name}, Birthdate: {p.Birthdate}, Phone: {p.Phone}, Email: {p.Email}");
             }
+
             return peopleInformation;
         }
 
