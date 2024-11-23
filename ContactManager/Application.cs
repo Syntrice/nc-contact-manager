@@ -29,6 +29,7 @@ namespace ContactManager
 
         public void Stop()
         {
+            PersonManager.SavePeople();
             _isRunning = false;
         }
     }
