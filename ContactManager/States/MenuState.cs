@@ -24,7 +24,7 @@
                     break; 
                 case "4": // List contacts
                     Console.WriteLine();
-                    _application.PersonManager.ListPeople();
+                    Console.WriteLine(String.Join("\n", _application.PersonManager.GetPeopleInformationList()));
                     break;
                 case "5": // Quit application
                     _application.Stop();

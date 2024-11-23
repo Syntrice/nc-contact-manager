@@ -27,12 +27,15 @@ namespace ContactManager.Manager
             return validationResult;
         }
 
-        public void ListPeople()
+        public List<String> GetPeopleInformationList()
         {
+
+            List<String> peopleInformation = new List<String>();
             foreach (Person p in _contacts)
             {
-                Console.WriteLine($"Id: {p.Id}, Name: {p.Name}, Birthdate: {p.Birthdate}, Phone: {p.Phone}, Email: {p.Email}");
+                peopleInformation.Add($"Id: {p.Id}, Name: {p.Name}, Birthdate: {p.Birthdate}, Phone: {p.Phone}, Email: {p.Email}");
             }
+            return peopleInformation;
         }
 
         public void SavePeople() // TODO: Perhaps make IDisposable and save in Dispose?
