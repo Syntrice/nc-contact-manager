@@ -5,30 +5,39 @@ namespace ContactManager.Manager
     public class PersonManager
     {
         private FileManager _fileManager;
-        public List<Person> Contacts { get; private set; }
+        private List<Person> _contacts;
+
         public PersonManager()
         {
             _fileManager = new FileManager("contacts.csv"); // TODO: Use a constant for the file 
-            Contacts = _fileManager.ReadPeopleCSV();
+            _contacts = _fileManager.ReadPeopleCSV();
         }
 
-        public void AddPerson(string name, string birthdate, string phone, string email)
+        public ValidationResult AddPerson(string name, string birthdate, string phone, string email)
         {
-            Person person = new Person(name, birthdate, phone, email);
-            Contacts.Add(person);
+            int id = _contacts.Count;
+            Person person = new Person(name, birthdate, phone, email, id);
+            ValidationResult validationResult = Person.PersonValidator.Validate(person);
+
+            if (validationResult.IsValid)
+            {
+                _contacts.Add(person);
+            }
+
+            return validationResult;
         }
 
         public void ListPeople()
         {
-            foreach (Person p in Contacts)
+            foreach (Person p in _contacts)
             {
-                Console.WriteLine($"Name: {p.Name}, Birthdate: {p.Birthdate}, Phone: {p.Phone}, Email: {p.Email}");
+                Console.WriteLine($"Id: {p.Id}, Name: {p.Name}, Birthdate: {p.Birthdate}, Phone: {p.Phone}, Email: {p.Email}");
             }
         }
 
         public void SavePeople() // TODO: Perhaps make IDisposable and save in Dispose?
         {
-            _fileManager.WritePeopleCSV(Contacts);
+            _fileManager.WritePeopleCSV(_contacts);
         }
     }
 }

@@ -24,8 +24,7 @@ namespace ContactManager.States
             Console.Write("Please enter email: ");
             string email = Console.ReadLine();
 
-            Person person = new Person(name, birthdate, phone, email);
-            ValidationResult result = Person.PersonValidator.Validate(person);
+            ValidationResult result = _application.PersonManager.AddPerson(name, birthdate, phone, email);
 
             if (!result.IsValid)
             {
@@ -38,7 +37,6 @@ namespace ContactManager.States
                 return;
             }
 
-            _application.PersonManager.AddPerson(name, birthdate, phone, email);
             Console.WriteLine("Contact Saved!");
 
             _application.State = new MenuState(_application);
